@@ -1,7 +1,7 @@
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { HomeScreen, PolylineScreen, RoutesScreen } from '@/features';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { HomeScreen, PolylineScreen, RoutesScreen } from '@/features';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import type { ScreenParams } from './navigation';
 
 const Stack = createNativeStackNavigator<ScreenParams>();
