@@ -1,28 +1,30 @@
 package com.hereexplore.features.navigation
 
+import com.facebook.react.bridge.ReadableArray
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.module.annotations.ReactModule
 import com.facebook.react.uimanager.ThemedReactContext
-import com.hereexplore.features.map.MapsView
-import com.hereexplore.features.map.MapsViewManager
-import com.hereexplore.features.map.MapsViewManager.Companion
-import com.hereexplore.features.map.MapsViewManagerSpec
+import com.facebook.react.uimanager.annotations.ReactProp
 
 @ReactModule(name = VisualNavigatorViewManager.TAG)
 class VisualNavigatorViewManager : VisualNavigatorViewManagerSpec<VisualNavigatorView>() {
-
-
-  override fun setRoute(view: VisualNavigatorView, value: ReadableMap?) {
-    TODO("Not yet implemented")
+  @ReactProp(name = "waypoints")
+  override fun setWaypoints(view: VisualNavigatorView, value: ReadableArray) {
+    view.startGuidance(value, "ScooterOptions")
   }
 
-  override fun getName() = MapsViewManager.TAG
+  @ReactProp(name = "location")
+  override fun setLocation(view: VisualNavigatorView, value: ReadableMap) {
+    view.setLocation(value)
+  }
 
-  public override fun createViewInstance(context: ThemedReactContext): MapsView {
-    val mapsHereView = MapsView(context)
-    mapsHereView.onCreate(null)
-    mapsHereView.loadCameraView()
-    return mapsHereView
+  override fun getName() = TAG
+
+  public override fun createViewInstance(context: ThemedReactContext): VisualNavigatorView {
+    val visualNavigatorView = VisualNavigatorView(context)
+    visualNavigatorView.onCreate(null)
+    visualNavigatorView.loadCameraView()
+    return visualNavigatorView
   }
 
   companion object {

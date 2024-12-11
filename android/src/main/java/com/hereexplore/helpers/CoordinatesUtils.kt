@@ -28,7 +28,7 @@ class CoordinatesUtils {
 
       if (arraySize != null) {
         for (i in 0 until arraySize) {
-          val item = readableArray.getMap(i)
+          val item = readableArray.getMap(i) ?: continue
           coordinates.add(toCoordinates(item))
         }
       }

@@ -1,6 +1,5 @@
 import type { ScreenNames, ScreenProps } from '@/navigation';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Map, Polyline } from 'react-native-here-explore';
 
 export const PolylineScreenName: ScreenNames = 'Polyline';
@@ -9,9 +8,9 @@ export default function PolylineScreen(props: ScreenProps<'Polyline'>) {
   return (
     <View style={{ flex: 1 }}>
       <Map
-        geoCoordinates={{ latitude: 52.51967475, longitude: 13.36895715 }}
+        geoCoordinates={{ latitude: 47.5, longitude: 8.5 }}
         style={styles.box}
-        mapScheme="NORMAL_NIGHT"
+        mapScheme="NORMAL_DAY"
         zoomValue={13}
       >
         <Polyline
